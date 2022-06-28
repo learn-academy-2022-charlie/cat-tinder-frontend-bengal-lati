@@ -5,7 +5,54 @@
 2. Change Directory to App Location
    > $ ```cd bengal-lati-frontend```
 
+# Frontend Structure
+1. Checkout new branch
+   > $ ```gco -b frontend-structure```
+2. Create folders (components, pages, assets)
+3. Create component files
+   > Header.js
+   > Footer.js
+4. Create pages files
+   > Home.js
+   > CatIndex.js
+   > CatShow.js
+   > CatNew.js
+   > CatEdit.js
+   > NotFound.js
+5. Install dependencies
+   > $ ```yarn add bootstrap reactstrap react-router-dom@5.3.0```
 
+   > In the src/Index.js
+   > ```javascript
+   >import "bootstrap/dist/css/bootstrap.min.css"
+   >```
+6. Within App.js, added BrowserRouter as Router, Route, Switch and import all components/pages, import Header and Footer
+   
+   > ```javascript
+   > import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
+   > import Header from './components/Header';
+   > import Home from './pages/Home';
+   > import CatIndex from './pages/CatIndex';
+   > import CatShow from './pages/CatShow';
+   > import CatNew from './pages/CatNew';
+   > import CatEdit from './pages/CatEdit';
+   > import NotFound from './pages/NotFound';
+   > import Footer from './components/Footer';
+   >```
+
+7. Add mockCats.js to src directory then import mock data mockCats.js
+   >```javascript
+   > import mockCats from './mockCats.js'
+   >```
+8. Since we opted to use functional components, import useState, useEffect
+   >```javascript
+   > import React, { useState, useEffect } from 'react';
+   >```
+9. Added styling to Header, Footer, Home, NotFound pages
+   > Added 404 image to assets folder then imported into NotFound.js. Had to name variable to "fail" because 404 is a number and cannot be used as a variable name.
+   >```javascript
+   > import fail from '../assets/404.jpg'
+   >```
 
 ---
 <!-- Boilerplate Below This Line -->
