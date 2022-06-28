@@ -8,24 +8,18 @@ import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 // Imports in the component we are going to be testing.
-import App from './App.js'
-import Home from './pages/Home.js'
+import NotFound from './NotFound.js'
 
 //Allows us to utilize the adapter we import in earlier, allowing us to call and render a component.
 Enzyme.configure({adapter: new Adapter()})
 
-describe("When App Renders", () => {
-  let appRender
-  beforeEach (() => {
-      appRender = shallow(<App />)
-  })
-  it("Displays a heading", () => {
-      const appHeading = appRender.find('h1')
-      expect(appHeading.length).toEqual(1)
-  })
-  it("Routes to Home", () => {
-    const renderedHomePath = appRender.find('[path="/"]')
-    expect(renderedHomePath.length).toEqual(1)
-    expect(renderedHomePath.props().component).toEqual(Home)
-  })
+describe("When NotFound Renders", () => {
+    let notFoundRender
+    beforeEach (() => {
+        notFoundRender = shallow(<NotFound />)
+    })
+    it("Displays an error image", () => {
+        const notFoundHeading = notFoundRender.find('img[id="fail"]')
+        expect(notFoundHeading.length).toEqual(1)
+    })
 })

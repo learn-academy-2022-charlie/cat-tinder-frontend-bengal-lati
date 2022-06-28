@@ -12,11 +12,13 @@ import Footer from './components/Footer';
 import mockCats from './mockCats.js'
 
 
+
 function App() {
   const [mock, setMock] = useState(mockCats);
   return (
     <Router>
       <Header/>
+      <h1>This is App.js</h1>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/catindex" component={CatIndex} />

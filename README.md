@@ -53,7 +53,55 @@
    >```javascript
    > import fail from '../assets/404.jpg'
    >```
-
+10. Add Enzyme and Jest test dependencies and started test runner
+    > $ ```yarn add -D enzyme react-test-renderer enzyme-adapter-react-16```
+    > $ ```yarn test```
+11. Created header, footer, home, and notfound test js files and copied over base imports
+    > ```javascript
+    > // Imports React into our test file.
+    >     import React from 'react'
+    >
+    >     // Imports Enzyme testing and deconstructs Shallow into our test file.
+    >     import Enzyme, { shallow } from 'enzyme'
+    >
+    >     // Imports Adapter utilizing the latest react version into our test file so we can run a testing render on any component we may need.
+    >     import Adapter from 'enzyme-adapter-react-16'
+    >
+    >     // Imports in the component we are going to be testing.
+    >     import Home from './Home'
+    >
+    >     //Allows us to utilize the adapter we import in earlier, allowing us to call and render a component.
+    >     Enzyme.configure({adapter: new Adapter()})
+    >``` 
+12. Added tests for each, example provided below:
+    >```javascript
+    >describe("When Home Renders", () => {
+    >    let homeRender
+    >    beforeEach (() => {
+    >        homeRender = shallow(<Home />)
+    >    })
+    >    it("Displays a heading", () => {
+    >        const homeHeading = homeRender.find('h1[id="title"]')
+    >        expect(homeHeading.length).toEqual(1)
+    >    })
+    >})
+    >```
+13. Created and imported image to Home and added relavent tests:
+    > ```javascript
+    >import banner from '../assets/Cinder.png'
+    >```
+    Add to JSX in Home render
+    > ```html
+    > <img src={banner} alt="Cinder Banner"/>
+    > ```
+14. Added test to Header.test.js to check for text
+    > ```javascript
+    >  it("Displays Text in Header", () => {
+    >        const headerText = headerRender.find('[className="header-title"]')
+    >        expect(headerText.text()).toEqual("CINDER")
+    >        
+    >    })
+    >```
 ---
 <!-- Boilerplate Below This Line -->
 ## Available Scripts
