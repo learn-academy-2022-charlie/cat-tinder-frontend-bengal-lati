@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Button, CardImg, CardTitle, CardText, CardGroup,
+import { Card, Button, CardImg, CardTitle, CardGroup,
  CardSubtitle, CardBody } from 'reactstrap';
 import { NavLink } from 'react-router-dom'
 

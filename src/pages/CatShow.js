@@ -1,21 +1,20 @@
 import React from 'react';
-import { useParams, useRouteMatch } from 'react-router-dom';
 import { Card, Button, CardImg, CardTitle, CardText,
   CardSubtitle, CardBody } from 'reactstrap';
 
-export default function CatShow({cats}) {
-  let { id } = useParams();
-  let match = useRouteMatch("/catshow/:id")
-  let cat = cats.find((catObject)=> catObject.id == id)
- 
+export default function CatShow(props) {
+  // let { id } = useParams();
+  // let match = useRouteMatch("/catshow/:id")
+  // let cat = props.find((catObject)=> catObject.id == id)
+  const {name, age,image, enjoys} = props.cat
   return (
     <>
       <Card>
-        <CardImg top width="100%" src={cat.image} alt={cat.name} />
+        <CardImg top width="100%" src={image} alt={name} />
         <CardBody>
-          <CardTitle> {cat.name} </CardTitle>
-          <CardSubtitle> {cat.age} </CardSubtitle>
-          <CardText> {cat.enjoys} </CardText>
+          <CardTitle> {name} </CardTitle>
+          <CardSubtitle> {age} </CardSubtitle>
+          <CardText> {enjoys} </CardText>
           <Button>Home</Button>
         </CardBody>
       </Card>
