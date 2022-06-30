@@ -7,12 +7,12 @@ import Adapter from 'enzyme-adapter-react-16'
 // Imports in the component we are going to be testing.
 import CarShow from './CarShow.js'
 // Import mock cat data
-import mockCats from '../mockCats.js'
+import mockCars from '../mockCars.js'
 //Allows us to utilize the adapter we import in earlier, allowing us to call and render a component.
 Enzyme.configure({adapter: new Adapter()})
 
 describe("When CarShow Renders", () => {
-    const car = mockCats[0]
+    const car = mockCars[0]
 
     let carShowRender     
     beforeEach(() => {

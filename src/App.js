@@ -9,13 +9,13 @@ import CarNew from './pages/CarNew';
 import CarEdit from './pages/CarEdit';
 import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
-import mockCats from './mockCats.js';
+import mockCars from './mockCars.js';
 
 
 
 
 function App() {
-  const [cars] = useState(mockCats);
+  const [cars] = useState(mockCars);
   
   return (
     <Router>

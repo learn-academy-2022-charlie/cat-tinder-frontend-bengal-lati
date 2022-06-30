@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Button, CardImg, CardTitle, CardText,
-  CardSubtitle, CardBody } from 'reactstrap';
+  CardSubtitle, CardBody, Nav } from 'reactstrap';
+import { NavLink } from 'react-router-dom';
 
 export default function CarShow(props) {
   // let { id } = useParams();
@@ -15,7 +16,9 @@ export default function CarShow(props) {
           <CardTitle> {name} </CardTitle>
           <CardSubtitle> {year} </CardSubtitle>
           <CardText> {enjoys} </CardText>
-          <Button>Home</Button>
+          <NavLink to="/carindex">
+            <Button>Home</Button>
+          </NavLink>
         </CardBody>
       </Card>
     </>
