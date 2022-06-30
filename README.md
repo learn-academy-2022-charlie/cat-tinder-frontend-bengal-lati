@@ -102,6 +102,33 @@
     >        
     >    })
     >```
+
+15. Create test catIndex.test.js, import mock cat data for testing
+
+   > It is very important to make sure to pass data within the shallow render
+   >```javascript
+   > describe("When CatIndex renders", () => {
+   > let catIndexRender
+   > beforeEach(() => {
+   >     catIndexRender = shallow(<CatIndex cats = {mockCats}/>)
+   > })
+   > it("renders all cats", () => {
+   >     const catIndexCard = catIndexRender.find('Card')
+   >     console.log("what",catIndexCard.length)
+   >     expect(catIndexCard.length).toEqual(mockCats.length)
+   > })
+   >})
+   >```
+16. Import NavLink to create button functionality in the index CardGroup
+   > ```javascript
+   > import { NavLink } from 'react-router-dom'
+   > ```
+
+   >```jsx
+   >  <NavLink to={`/catshow/${cat.id}`}>
+   >     <Button> More Info </Button>
+   >  </NavLink>  
+   >```
 ---
 <!-- Boilerplate Below This Line -->
 ## Available Scripts
