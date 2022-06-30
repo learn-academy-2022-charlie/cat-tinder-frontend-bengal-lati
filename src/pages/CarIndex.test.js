@@ -5,20 +5,20 @@ import Enzyme, { shallow } from 'enzyme'
 // Imports Adapter utilizing the latest react version into our test file so we can run a testing render on any component we may need.
 import Adapter from 'enzyme-adapter-react-16'
 // Imports in the component we are going to be testing.
-import CatIndex from './CatIndex.js'
+import CarIndex from './CarIndex.js'
 // Import mock cat data
 import mockCats from '../mockCats.js'
 //Allows us to utilize the adapter we import in earlier, allowing us to call and render a component.
 Enzyme.configure({adapter: new Adapter()})
 
-describe("When CatIndex renders", () => {
+describe("When CarIndex renders", () => {
   
-    let catIndexRender
+    let carIndexRender
     beforeEach(() => {
-        catIndexRender = shallow(<CatIndex cats = {mockCats}/>)
+        carIndexRender = shallow(<CarIndex cars = {mockCats}/>)
     })
-    it("renders all cats", () => {
-        const catIndexCard = catIndexRender.find('Card')
-        expect(catIndexCard.length).toEqual(mockCats.length)
+    it("renders all cars", () => {
+        const carIndexCard = carIndexRender.find('Card')
+        expect(carIndexCard.length).toEqual(mockCats.length)
     })
 })

@@ -1,15 +1,15 @@
 import React from 'react'
 import {Form, FormGroup, Label, Input, Button} from 'reactstrap'
 
-export default function CatNew() {
+export default function CarNew() {
   return (
     <>
-      <div>CatNew</div>
+      <div>CarNew</div>
       <FormGroup>
         <Form>
           <Label>Label</Label>
           <Input></Input>
-          <Button>Cat It Up</Button>
+          <Button>Car It Up</Button>
         </Form>
       </FormGroup>
     </>
