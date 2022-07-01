@@ -15,7 +15,7 @@ import mockCars from './mockCars.js';
 
 
 function App() {
-  const [cars] = useState(mockCars);
+  const [cars, setCars] = useState(mockCars);
   
   return (
     <Router>
@@ -32,7 +32,7 @@ function App() {
           return <CarShow car={car}/>
         }}/>
                   
-        <Route path="/carnew" component={CarNew} />
+        <Route path="/carnew" component={CarNew} cars={cars}/>
         <Route path="/caredit" component={CarEdit} />
         <Route component={NotFound}/>
       </Switch>
