@@ -3,7 +3,11 @@ import { Card, Button, CardImg, CardTitle, CardGroup,
  CardSubtitle, CardBody } from 'reactstrap';
 import { NavLink } from 'react-router-dom'
 
-export default function CatIndex({cars}) {
+
+
+export default function CatIndex(props) {
+  let {cars} = props
+ 
   return (
     <>
     <CardGroup>
@@ -11,7 +15,7 @@ export default function CatIndex({cars}) {
       cars.map((car, index) => {
       return(
       <Card key={index}>
-        <CardImg top width="100%" src={car.image} alt={car.name} />
+        <CardImg src={car.image} alt={car.name} />
         <CardBody>
           <CardTitle>{car.name}</CardTitle>
           <CardSubtitle>{car.age}</CardSubtitle>

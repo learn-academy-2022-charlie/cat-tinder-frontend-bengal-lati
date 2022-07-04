@@ -1,39 +1,34 @@
 import React from 'react'
+import { Navigate } from 'react-router-dom'
 import { useState } from 'react'
 import {Form, FormGroup, Label, Input, Button} from 'reactstrap'
 
-export default function CarNew({cars}) {
-  const [carsNew, setCarsNew] = useState(cars);  
+
+
+export default function CarNew(props) {
+  let {readCar, newCar} = props
+  // hook for each input field
   const [name, setName ] = useState("")
   const [year, setYear] = useState("")
   const [enjoys, setEnjoys] = useState("")
   const [image, setImage] = useState("")
-  // let [values, setValues] = useState({
-  //   name: null, 
-  //   year: null,
-  //   enjoys: null,
-  //   image: null
-  // })
+  const [submit, setSubmit] = useState(false)
 
+  // Submit method will create a newCar object and push into state object array
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(name)
-    console.log(typeof year)
-    console.log(enjoys)
-    console.log(image)
-    let newCar = {
+    let newRide = {
       name: name,
       year: Number(year),
       enjoys: enjoys,
       image: image
     } ;
-    setCarsNew(carsNew.push(newCar))  
-    console.log(carsNew)
+    newCar(newRide)
+    readCar()
+    setSubmit(true)
+    
   }
-
-  
- 
-  
+    
   return (
     <>
       <div>Enter a new Car!</div>
@@ -64,6 +59,7 @@ export default function CarNew({cars}) {
           </FormGroup>
           <Button type="submit" > Car It Up </Button>
         </Form>
+        {submit && <Navigate replace to="/carindex"/>}
     </>
   )
 }

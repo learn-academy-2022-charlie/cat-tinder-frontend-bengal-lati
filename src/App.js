@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Header from './components/Header'
 import Home from './pages/Home';
 import CarIndex from './pages/CarIndex';
@@ -11,10 +11,8 @@ import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
 
 
-
-
-
 function App() {
+
   let [hasError, setErrors] = useState(false)
   let [cars, setCars] = useState([])
   
@@ -25,35 +23,59 @@ function App() {
     response
       .json()
       .then(response => setCars(response))
-      .catch(err => setErrors(err))
+      .catch(err => {
+        setErrors(err)
+        console.log(hasError)
+      })
   }
+
+  function createCar (newCar) {
+   fetch("http://localhost:3000/cars",
+      {
+        body: JSON.stringify(newCar),
+        headers: {"Content-Type":"application/json"},
+        method: "POST",
+        
+      }
+    )
+    .then(response => response.json())
+    .then(payload => setCars(readCar()))
+    .catch(err => {
+      setErrors(err)
+      console.log(hasError)
+    })
+    alert("New car added")
+    
+  }
+
+function deleteCar(id) {
+  fetch(`http://localhost:3000/cars/${id}`, {
+    method: "DELETE"
+  }).then( result => {
+    result.json().then( response => {
+      console.warn(response)
+    })
+  })
+  
+}
 
 
   useEffect(()=>{
     readCar();
-  })
-
+  },[])
+  
   return (
-    <Router>
+    <Router forceRefresh={true}>
       <Header/>
-      <h1>This is App.js</h1>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/carindex">
-          <CarIndex cars={cars}></CarIndex>
-        </Route>
-        <Route path="/carshow/:id" render={(props)=> {
-          let id = props.match.params.id
-          let car = cars.find((carObject) => carObject.id.toString() === id)
-          return <CarShow car={car}/>
-        }}/>
-                  
-        <Route path="/carnew">
-            <CarNew cars={cars}/>
-        </Route>
-        <Route path="/caredit" component={CarEdit} />
-        <Route component={NotFound}/>
-      </Switch>
+      <h1>Welcome To Cinder</h1>
+      <Routes>
+        <Route exact path="/" element={Home} />
+        <Route path="/carindex" element={<CarIndex cars={cars}/> }/>
+        <Route path="/carshow/:id" element={<CarShow cars={cars} deleteCar={deleteCar} readCar={readCar}/>} />                  
+        <Route path="/carnew" element={<CarNew cars={cars} newCar={createCar} readCar={readCar}/>} />
+        <Route path="/caredit" element={CarEdit} />
+        <Route element={NotFound}/>
+      </Routes>
       <Footer/>
     </Router>
   );
