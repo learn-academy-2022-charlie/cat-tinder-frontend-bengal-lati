@@ -8,7 +8,7 @@ import {
   CardBody
 } from 'reactstrap';
 import { NavLink, useParams, Navigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function CarShow(props) {
   
@@ -26,21 +26,24 @@ export default function CarShow(props) {
 
   return (
     <>
-      <Card>
-        <CardImg src={image} alt={name} />
-        <CardBody>
-          <CardTitle> {name} </CardTitle>
-          <CardSubtitle> {year} </CardSubtitle>
-          <CardText> {enjoys} </CardText>
-          <NavLink to="/carindex">
-            <Button>Home</Button>
-          </NavLink>
-          
-            <Button onClick={()=>clickHandle(id)}> Delete </Button>
-          
-        </CardBody>
-      </Card>
-      {redirect && <Navigate replace to="/carindex"/>}
+      <div className="show-card">
+        <Card>
+          <CardImg src={image} alt={name} />
+          <CardBody>
+            <CardTitle> {name} </CardTitle>
+            <CardSubtitle> {year} </CardSubtitle>
+            <CardText> {enjoys} </CardText>
+            <NavLink to="/carindex">
+              <Button>Home</Button>
+            </NavLink>
+            <NavLink to={`/caredit/${id}`}>
+              <Button> Edit </Button>
+            </NavLink>
+              <Button onClick={()=>clickHandle(id)}> Delete </Button>
+          </CardBody>
+        </Card>
+      </div>
+        {redirect && <Navigate replace to="/carindex"/>}
     </>
   )
 }

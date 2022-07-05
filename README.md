@@ -158,6 +158,7 @@
 
 18. Creating fetch requests for functional components require that we use the useEffect hook (don't forget to import). Then we create an async function and call it using the hook.
 
+19. Creating Edit form is same as the create form, HOWEVER. When testing will have to test and make sure at least ONE of the fields have been changed.
 
 ---
 <!-- Boilerplate Below This Line -->

@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.whole-car {
+    width: 100vw;
+    height: 15vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    animation: nightoffire 4s infinite linear;
+}
+
+.track {
+    width: 100vw;
+    height: 2vh;
+    background-color: rgb(35, 34, 34);
+    position:absolute;
+    bottom: 0;
+}
+
+.car {
+    background-image: url(../assets/panda2b.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 17rem;
+    height: 4.699rem;
+    position: absolute;
+    bottom: 27px;
+    left: 396px;
+    animation: bump  100ms infinite alternate;
+}
+
+.title {
+    font-size: 40px;
+    font-family: cursive;
+}
+
+.wheel {
+    position: absolute;
+    animation: wheelanimation linear .4s infinite;
+}
+.wheel1 {
+    background-image: url(../assets/wheel1a.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 46px;
+    height: 46.5px;
+    bottom: 10px;
+    left: 590px;
+}
+.wheel2 {
+    background-image: url(../assets/wheel1a.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 46px;
+    height: 46.5px;
+    bottom: 10px;
+    left: 435px;
+}
+
+/* Rotation of the wheels */
+@keyframes wheelanimation{
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes bump {
+    from {
+      transform: translate3d(0, 1.5px, 0);
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes nightoffire {
+    from {
+      transform: translate3d(-10vw, 0, 0);
+    }
+    to {
+      transform: translate3D(110vw, 0, 0);
+    }
+  }
+  
