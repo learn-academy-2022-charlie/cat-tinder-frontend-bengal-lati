@@ -129,6 +129,37 @@
    >     <Button> More Info </Button>
    >  </NavLink>  
    >```
+
+17. When creating forms in functional components, each input field will have it's own state and then we used it to create a new object which we then pushed into our handleSubmit method.
+
+```javascript
+  // new state object to add in new cars
+  const [carsNew, setCarsNew] = useState(cars);  
+
+  // hook for each input field
+  const [name, setName ] = useState("")
+  const [year, setYear] = useState("")
+  const [enjoys, setEnjoys] = useState("")
+  const [image, setImage] = useState("")
+
+  // Submit method will create a newCar object and push into state object array
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    let newCar = {
+      name: name,
+      year: Number(year),
+      enjoys: enjoys,
+      image: image
+    } ;
+    setCarsNew(carsNew.push(newCar))  
+    console.log(carsNew)
+  }
+```
+
+18. Creating fetch requests for functional components require that we use the useEffect hook (don't forget to import). Then we create an async function and call it using the hook.
+
+19. Creating Edit form is same as the create form, HOWEVER. When testing will have to test and make sure at least ONE of the fields have been changed.
+
 ---
 <!-- Boilerplate Below This Line -->
 ## Available Scripts

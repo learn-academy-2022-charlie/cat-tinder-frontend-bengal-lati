@@ -18,7 +18,7 @@ describe("When CarIndex renders", () => {
         carIndexRender = shallow(<CarIndex cars = {mockCars}/>)
     })
     it("renders all cars", () => {
-        const carIndexCard = carIndexRender.find('Card')
+        const carIndexCard = carIndexRender.find('Carousel.Item')
         expect(carIndexCard.length).toEqual(mockCars.length)
     })
 })

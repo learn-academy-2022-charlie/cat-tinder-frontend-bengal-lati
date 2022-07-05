@@ -1,11 +1,28 @@
 import React from 'react';
-import banner from '../assets/Cinder.png'
+import Carousel from 'react-bootstrap/Carousel'
 
-export default function Home() {
+
+export default function Home(props) {
+  let {cars} = props
   return (
-    <div class='container'>
-        <h1 id='title'>Home</h1>
-        <img src={banner} alt="Cinder Banner"/>
-    </div>
+    <>
+      <Carousel>
+      {cars && cars.map(car => {
+          return(
+          <Carousel.Item>    
+            <img
+              className="d-block w-100"
+              src= {car.image}
+              alt="First slide"
+            />
+            <Carousel.Caption>
+            </Carousel.Caption>
+            
+          </Carousel.Item>
+          )
+        })
+      }
+      </Carousel>
+    </>
   )
 }

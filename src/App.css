@@ -1,12 +1,62 @@
-.container {
+/* .container {
   background-color: black;
 }
 
+
 #fail {
-  width:100vw;
+  height: 100vh;
 }
 
 #title {
   font-size: 40px;
   color: white;
+} */
+.app-container {
+  
+  width:100vw;
+  margin:auto;
+  background-color: black;
+  
+  
+}
+
+.carousel .carousel-item img {
+  object-fit: scale-down;
+  object-position: center;
+  height: 75vh;
+  overflow: hidden;
+}
+
+.card-img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card-body {
+  object-position: center;
+}
+
+.form-car {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.form-car {
+  height: 100vh;;
+  display: flex;
+  justify-content: center;
+}
+
+.form-car input {
+  width: 50vw;
+}
+
+.show-card .card{
+  width: 95vh;
+  margin: auto;
+  
 }
